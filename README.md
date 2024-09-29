@@ -15,13 +15,13 @@ The first and most important part of SFS is that **everything** in SFS is a file
 ### (Meta)Data 
 All blocks, both metadata and data are exactly 4kib in size, and can never change size.
 **Metadata blocks** are composed of the following (in as of yet no particular order):
-|Component                                             |Component wight|
-|------------------------------------------------------|---------------|
-| A filename                                           |64 bytes       |
-| A file type                                          |32 bytes       |
-| An array of permissions                              |32 bytes       |
-| An array of pointers t /o the beginning of data blocks |64 bytes       |
-| An array of pointers to the end of data blocks       |64 bytes       |
+|Component                                             |
+|------------------------------------------------------|
+| A filename                                           |
+| A file type                                          |
+| An array of permissions                              |
+| An array of pointers to the beginning of data blocks |
+| An array of pointers to the end of data blocks       |
 (All numbers are assuming a 64-bit address space)
 
-The arrays of pointers to the beginnings an ends of data blocks are the core of all metatadata blocks and work by pointing not to individual data blocks, but to *continuous extents of*  data blocks. This allows them to at minimum handle a single data block per pair of pointers in each metadatablock (assuming all are maximally fragmented), and a maximum file size determined by the memory address space of the machinge
+The arrays of pointers to the beginnings an ends of data blocks are the core of all metatadata blocks and work by pointing not to individual data blocks, but to *continuous extents of*  data blocks. This allows them to at minimum handle a single data block per pair of pointers in each metadatablock (assuming all are maximally fragmented), and a maximum file size determined by the memory address space of the machine

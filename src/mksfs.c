@@ -45,7 +45,7 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-    printf("filetime");
+    printf("filetime\n");
 
     struct metaBlock *root = (struct metaBlock*)calloc(1, BLOCK_SIZE);
     memset(root, '\0',BLOCK_SIZE);
